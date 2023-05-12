@@ -24,5 +24,8 @@ def forgotpassword(request):
 def loginresearcher(request):
     return render(request, 'regs/login_researcher.html')
 
+def registeringpatient(request):
+    return render(request, 'regs/dash_register_patient.html')
+
 # classical views with classes
 # from django.views import generic
