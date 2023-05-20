@@ -4,13 +4,13 @@
 
 ## About The Project
 
-    Inaccessible maternal health data limits preparedness for birth complications like Eclampsia. Our solution is to digitize maternal health cards, using the data to develop a machine-learning model for predicting Eclampsia. This will enable data-driven decisions and solutions for doctors , researchers , innovators and patients themselves.
+Inaccessible maternal health data limits preparedness for birth complications like Eclampsia. Our solution is to digitize maternal health cards, using the data to develop a machine-learning model for predicting Eclampsia. This will enable data-driven decisions and solutions for doctors , researchers , innovators and patients themselves.
     
-    We aim to ensure the solution is adopted by the ministry of health in Tanzania and being used in all hospitals , currently I am doing this project as my final year university project and its my hope the University will help me to scale the solution and assist me in tailoring it to actually meet the needs of Tanzanians.
+We aim to ensure the solution is adopted by the ministry of health in Tanzania and being used in all hospitals , currently I am doing this project as my final year university project and its my hope the University will help me to scale the solution and assist me in tailoring it to actually meet the needs of Tanzanians.
 
 ##  Project Inspiration
 
-    I admire the work done by multiple countries in Europe in digitizing their health care and would love to bring that in Tanzania , furthermore after doing research and seeing the potential it holds in improving the healthcare field in a broad way , gives me hope that the project will be a success.
+I admire the work done by multiple countries in Europe in digitizing their health care and would love to bring that in Tanzania , furthermore after doing research and seeing the potential it holds in improving the healthcare field in a broad way , gives me hope that the project will be a success.
 
 The concept came about as I was doing self -learning on machine learning , and then an idea crossed my mind about how most hospitals fail to plan beforehand on birth complication issues that may arise during delivery and carter the needs of safe delivery , furthermore tracking mothers' recovery and child's growth. Diving deeper made me realize how digital data will be able to solve these issues , the sad thing was there we no available maternal digital health data to use in developing prediction models , which made to think on a way to transform physical cards to digital cards for researchers , doctors , patients and doctors to use data to improve healthcare in general. The solution is unique in a way that we are democratizing health data giving more power to the appropriate stakeholders to make decisive data-driven decisions , something which is novel in Tanzania.
 
