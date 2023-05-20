@@ -1,0 +1,109 @@
+<!-- extending from researchdash.html -->
+{% extends './researchdash.html' %}
+
+<!-- calling block -->
+{% block researchlayout %}
+<div class="container px-4 py-5">
+    <div class="row row-cols-2 w-100">
+        <div class="col col-sm-3">
+            <div class="card shadow" style="width: 18rem; border-radius: 15px;">
+                <img src="https://picsum.photos/150/150" class="card-img-top rounded-circle p-4" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Full Name</h5>
+                    <h6>Researchers Biograph</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square px-2"></i>Edit Profile Image</button>
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-9 shadow bg-light" style="border-radius: 15px;">
+        <form action="" method="get" class="container py-3 mx-auto">
+            <div class=" d-grid g-2">
+                <div class="row row-cols-2 " >
+                    <div class="mb-3 col ">
+                        <label for="first Name" class="col-sm-4 col-form-label">First Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" disabled value="John" class="form-control" id="researcher_f_name">
+                        </div>
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="Second Name" class="col-sm-4 col-form-label">Second Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" disabled value="Doe"  class="form-control" id="researcher_s_name">
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-2 " >
+                    <div class="mb-3 col">
+                        <label for="Insitution Name" class="col-sm-4 col-form-label">Insitution Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" disabled value="University Of Dar Es Salaam"  class="form-control" id="i_name"
+                                placeholder="University Of Dar es Salaam">
+                        </div>
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="first Name" class="col-sm-4 col-form-label">Institution ID</label>
+                        <div class="col-sm-10">
+                            <input type="number" disabled value="#098765434567"  class="form-control" id="researcher_insitution_id" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-2 " >
+                    <div class="mb-3 col">
+                        <label for="Phone Number" class="col-sm-4 col-form-label">Phone Number</label>
+                        <div class="col-sm-10">
+                            <input type="tel" disabled value="255753648740"  class="form-control" id="researcher_phone_number"
+                                placeholder="25575364****">
+                        </div>
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="national ID" class="col-sm-4 col-form-label">National ID</label>
+                        <div class="col-sm-10">
+                            <input type="text" disabled value="19950908400000300"  class="form-control" id="national_id"
+                                placeholder="19870523***********">
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-2 " >
+                    <div class="mb-3 col">
+                        <label for="first Name" class="col-sm-4 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" disabled value="johndoe@gmail.com"  class="form-control" id="researcher_email"
+                                placeholder="alexgmkwizu@gmail.com">
+                        </div>
+                    </div>                   
+                </div>                
+                <div class="col-auto py-3">
+                    <button type="submit" class="btn btn-primary mb-3 w-100"
+                        style=" border-radius: 5px ;"><i class="bi bi-pencil-square px-2"></i>Edit</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+<!-- edit profile picture modal -->
+<div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Edit Profile Image</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="" method="get" class="mx-auto">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Browse Image</label>
+                    <input class="form-control" type="file" id="profilepic">
+                  </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

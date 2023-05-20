@@ -19,6 +19,9 @@ urlpatterns = [
     path("stakeholders", views.stakeholders, name="stakeholders"),
     path("loginhospital", views.loginhospital, name="loginhospital"),
     path("dashboard", views.dashboard, name="dashboard"),
+    path("researchdashboard", views.researchdashboard, name="researchdashboard"),
+    path("researchdashpublications", views.researchdashpublications, name="researchdashpublications"),
+    path("researchdashprofile", views.researchdashprofile, name="researchdashprofile"),
 
 ]
 

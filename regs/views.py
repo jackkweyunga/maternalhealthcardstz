@@ -36,6 +36,14 @@ def loginhospital(request):
 def dashboard(request):
     return render(request, 'regs/dashboard.html')
 
+def researchdashboard(request):
+    return render(request, 'regs/researchdash.html')
+
+def researchdashpublications(request):
+    return render(request, 'regs/researchdash_publications.html')
+
+def researchdashprofile(request):
+    return render(request, 'regs/researchdash_profile.html')
 
 # classical views with classes
 # from django.views import generic

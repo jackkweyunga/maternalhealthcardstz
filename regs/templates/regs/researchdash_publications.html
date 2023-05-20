@@ -1,0 +1,146 @@
+
+    {% extends './researchdash.html' %}
+
+
+   {% block researchlayout %}
+    <div class="container py-5 col px-4">
+        <div class="row px-3">
+            <table class="table table-responsive table-lg table-bordered bg-light caption-top " aria-label="some"
+                style="border-radius: 15px;" style="width:85vw;">
+                <caption>Published Research Papers</caption>
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col"># (S/NO)</th>
+                        <th scope="col">Research Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Medical Field</th>
+                        <th scope="col">Authors</th>
+                        <th scope="col">Date Published</th>
+                     </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry the Bird</td>
+                        <td>@twitter</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row px-5 py-2 position-relative" style="right:1vw;">
+            <button type="button" class="btn btn-primary position-absolute  w-25 end-0 " data-bs-toggle="modal" data-bs-target="#staticBackdrop">Publish a New Research</button>
+        </div>
+
+        <!-- modal to add a request starts -->
+        <!-- Modal -->
+        <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Publish A New Research</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Publish a New Research</button>
+                    </div>
+                </div>
+            </div>
+            <!-- modal to add a request ends here -->
+        </div>
+    </div>
+    <!-- data request full table -->
+    <div class="container py-5 col px-4">
+        <div class="row px-3">
+            <table class="table table-responsive table-lg table-bordered bg-light caption-top " aria-label="some"
+                style="border-radius: 15px;" style="width:85vw;">
+                <caption>Data Requests</caption>
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col"># (S/NO)</th>
+                        <th scope="col">Data Request Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Date Request</th>
+                        <th scope="col">Request Status</th>
+                        <th scope="col">Download Data</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry the Bird</td>
+                        <td>@twitter</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row px-5 py-2 position-relative" style="right:1vw;">
+            <button type="button" class="btn btn-primary position-absolute  w-25 end-0 " data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Data Request</button>
+        </div>
+
+        <!-- modal to add a request starts -->
+        <!-- Modal -->
+        <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Add Data Request</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </div>
+                </div>
+            </div>
+            <!-- modal to add a request ends here -->
+        </div>
+    </div>
+    {% endblock %}
