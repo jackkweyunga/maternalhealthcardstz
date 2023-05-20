@@ -27,5 +27,15 @@ def loginresearcher(request):
 def registeringpatient(request):
     return render(request, 'regs/dash_register_patient.html')
 
+def stakeholders(request):
+    return render(request, 'regs/stakeholders.html')
+
+def loginhospital(request):
+    return render(request, 'regs/hospital_login.html')
+
+def dashboard(request):
+    return render(request, 'regs/dashboard.html')
+
+
 # classical views with classes
 # from django.views import generic

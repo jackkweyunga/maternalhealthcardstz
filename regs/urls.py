@@ -1,6 +1,8 @@
+
 from django.urls import path
 
 from . import views
+
 
 # namespacing urls for easier url referencing
 app_name = "regs"
@@ -14,6 +16,9 @@ urlpatterns = [
     path("forgotpassword", views.forgotpassword, name="forgotpassword"),
     path("loginresearcher", views.loginresearcher, name="loginresearcher"),
     path("registeringpatient", views.registeringpatient, name="registeringpatient"),
+    path("stakeholders", views.stakeholders, name="stakeholders"),
+    path("loginhospital", views.loginhospital, name="loginhospital"),
+    path("dashboard", views.dashboard, name="dashboard"),
 
 ]
 

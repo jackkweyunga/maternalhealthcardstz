@@ -47,13 +47,19 @@
     </nav>
     <!-- nav bar ends -->
     <!-- main lock up starts -->
-    <div class="container position-fixed transalate-middle-x  start-25 " style=" top : 25vh ; left : 17vw">
+    <div class="container position-fixed   start-25 " style=" top : 25vh ; left : 17vw">
         <div class="row">
             <div class="col w-25 ">
                 <h1 class="display-2  "> Digitizing collection of maternal health data in Tanzania. </h1>
                 <p class=" lead " style=" font-size : 1.5rem ">Revolutionizing the way maternal health data is processed
                     in Tanzania by digitizing maternal health cards.</p>
-                <button type="button" class="btn btn-outline-primary btn-lg w-50 " style="border-radius: 50px;"> SIGN IN </button>
+                    <a href="{% url 'regs:stakeholders'%}" style="text-decoration: none; " > <button type="button" class="btn btn-outline-primary btn-lg w-50 " style="border-radius: 50px;">SIGN IN </button> </a>
+                <style>
+                    a:hover{
+                        text-decoration: none;
+                        color: white;
+                    }
+                </style>
             </div>
             <div class="col-6 position-relative " style="right:2vw;">
                 <img alt="image of a doctors" src="{% static '/images/rafiki.png' %}">
