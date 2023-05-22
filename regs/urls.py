@@ -22,6 +22,12 @@ urlpatterns = [
     path("researchdashboard", views.researchdashboard, name="researchdashboard"),
     path("researchdashpublications", views.researchdashpublications, name="researchdashpublications"),
     path("researchdashprofile", views.researchdashprofile, name="researchdashprofile"),
+    path("regulatordash", views.regulatordash, name="regulatordash"),
+    path("regulatordash_hospitals", views.regulatordash_hospitals, name="regulatordash_hospitals"),
+    path("regulatordashprofile", views.regulatordashprofile, name="regulatordashprofile"),
+    path("visualdata", views.regulatordash_visualdata, name="visualdata"),
+    path("regulatordash_published", views.regulatordash_published, name="regulatordash_published"),
+    path("regulatordash_reports", views.regulatordash_reports, name="regulatordash_reports"),
 
 ]
 

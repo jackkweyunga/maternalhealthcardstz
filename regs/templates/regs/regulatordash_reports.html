@@ -1,0 +1,79 @@
+<!-- extending regulatordash.html -->
+{% extends "regs/regulatordash.html" %}
+{% block regulatorlayout %}
+
+
+<div class="container py-5 px-4">
+
+    <form method="get" action="">
+        <div class="col-12">
+            <label class="visually-hidden" for="search"></label>
+            <div class="input-group">
+                <div class="input-group-text">querry the database</div>
+                <input type="search" class="form-control col-12" id="search_querry"
+                    placeholder="what do you want to see ?">
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-responsive table-lg table-bordered bg-light caption-top " aria-label="some"
+        style="border-radius: 15px;" style="width:85vw;">
+        <caption>Publications</caption>
+        <thead class="table-primary">
+            <tr>
+                <th scope="col"># (S/NO)</th>
+                <th scope="col"> Publication Title</th>
+                <th scope="col">Publishers</th>
+                <th scope="col">Date Published</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row px-5 py-2 position-relative" style="right:1vw;">
+        <button type="button" class="btn btn-primary position-absolute  w-25 end-0 " data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">Generate Report</button>
+    </div>
+    <!-- modal to generate a report starts -->
+            <!-- Modal -->
+            <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Generating a Report ..</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Finish Generating</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal to generate report ends here -->
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+<!-- extending regulatordash_hospitals.html  -->
+{% extends "regs/regulatordash.html" %}
+
+<!-- loads block -->
+{% block regulatorlayout %}
+<!-- hospitals data rendered in a table format -->
+<div class="container py-5 px-4">
+    <div class=" row  w-100 ">
+        <form class="row row-cols-lg-auto  ">
+            <div class="col-7">
+              <label class="visually-hidden" for="search">Search</label>
+              <div class="input-group">
+                <div class="input-group-text">Search</div>
+                <input type="search" class="form-control col-12" id="search_publications" placeholder="search hospital by">
+              </div>
+            </div>
+        </form>
+    </div>
+    <table class="table table-responsive table-lg table-bordered bg-light caption-top " aria-label="some"
+        style="border-radius: 15px;" style="width:85vw;">
+        <caption>Hospital Data</caption>
+        <thead class="table-primary">
+            <tr>
+                <th scope="col">Hospital ID</th>
+                <th scope="col">Hospital Name</th>
+                <th scope="col">Hospital Type</th>
+                <th scope="col">Hospital Affiliation</th>
+                <th scope="col">Hospital Region</th>
+                <th scope="col">Hospital District</th>
+                <th scope="col">Hospital Ward</th>
+                <th scope="col">Hospital Affiliation</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock%}

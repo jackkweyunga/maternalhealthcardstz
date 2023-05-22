@@ -45,5 +45,23 @@ def researchdashpublications(request):
 def researchdashprofile(request):
     return render(request, 'regs/researchdash_profile.html')
 
+def regulatordash(request):
+    return render(request, 'regs/regulatordash.html')
+
+def regulatordash_hospitals(request):
+    return render(request, 'regs/regulatordash_hospitals.html')
+
+def regulatordashprofile(request):
+    return render(request, 'regs/regulatordashprofile.html')
+
+def regulatordash_visualdata(request):
+    return render(request, 'regs/regulatordash_visualdata.html')
+
+def regulatordash_published(request):
+    return render(request, 'regs/regulatordash_published.html')
+
+def regulatordash_reports(request):
+    return render(request, 'regs/regulatordash_reports.html')
+
 # classical views with classes
 # from django.views import generic

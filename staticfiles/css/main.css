@@ -1,0 +1,42 @@
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 4px; /* Width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #cfe2ff; /* Background color of the scrollbar track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #cfe2ff; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Rounded corners of the scrollbar thumb */
+  }
+  
+  /* For Firefox */
+  /* Note: Firefox currently does not support rounded corners on scrollbar-thumb */
+  /* You can remove the border-radius property for Firefox compatibility */
+  /* Firefox only supports scrollbar color, not the track */
+  /* To change scrollbar color in Firefox, use scrollbar-color property */
+  /* For example: scrollbar-color: #888 #f1f1f1; */
+  
+  /* For Internet Explorer and Edge */
+  /* Internet Explorer and Edge use a different syntax to style scrollbars */
+  /* Unfortunately, the level of customization is limited */
+  /* You can adjust the colors using scrollbar-base-color and scrollbar-face-color properties */
+  
+  /* Example for Internet Explorer and Edge */
+  /* Adjust colors as needed */
+  /* Note: These properties are not supported in modern browsers */
+  /* They are provided only for backward compatibility with older versions of IE and Edge */
+  /* For newer versions of Edge (Chromium-based), the WebKit syntax can be used */
+  
+  /* Scrollbar track */
+  html::-ms-scrollbar-track {
+    background-color: #cfe2ff;
+  }
+  
+  /* Scrollbar thumb */
+  html::-ms-scrollbar-thumb {
+    background-color: #cfe2ff;
+  }
+  

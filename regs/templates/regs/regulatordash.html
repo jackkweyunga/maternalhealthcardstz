@@ -10,10 +10,13 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
     <title>main | dashboard</title>
 </head>
 
 <body style="margin: 0; padding: 0; min-height: 100vh;  box-sizing: border-box; background-color: #ecf0f4;">
+    <!-- for charts using chart.js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- main frame starts here -->
     <!-- sidebar starts here -->
     <div class="container-fluid sidebar col-2 vh-100 fixed-top flex-column"
@@ -24,7 +27,7 @@
             </a>
         </div>
         <div class="py-4">
-            <h6 class="text-bold text-center text-light"> <i class="bi bi-speedometer2 px-1"></i>HOSPITAL DASHBOARD
+            <h6 class="text-bold text-center text-light"> <i class="bi bi-speedometer2 px-1"></i>REGULATOR DASHBOARD
             </h6>
         </div>
         <!-- accordion starts -->
@@ -43,7 +46,7 @@
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <ul class="dash-drop w-100 container-fluid">
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="#"><button
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:regulatordash' %}"><button
                                             type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">Home
                                             Page</button></a></li>
                             </ul>
@@ -66,20 +69,16 @@
                     <h2 class="accordion-header" id="flush-headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            <i class="bi bi-clipboard2-pulse px-3"></i> Patients
+                            <i class="bi bi-clipboard2-pulse px-3"></i> Hospitals
                         </button>
                     </h2>
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="dash-drop w-100 container-fluid">
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="#"><button
-                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">View
-                                            History</button></a></li>
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="#"><button
-                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">View
-                                            Cards</button></a></li>
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="#"><button
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:regulatordash_hospitals' %}"><button
+                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">View Hospitals</button></a></li>
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:visualdata' %}"><button
                                             type="button" class="w-100 btn btn-secondary"
                                             style="opacity: 0.7;">Visualize Data</button></a></li>
                             </ul>
@@ -103,19 +102,15 @@
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseThree" aria-expanded="false"
                             aria-controls="flush-collapseThree">
-                            <i class="bi bi-clipboard2-pulse px-3"></i> Doctors
+                            <i class="bi bi-clipboard2-pulse px-3"></i> Research
                         </button>
                     </h2>
                     <div id="flush-collapseThree" class="accordion-collapse collapse"
                         aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="dash-drop w-100 container-fluid">
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="#"><button
-                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">View
-                                            Doctors</button></a></li>
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="#"><button
-                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">Add
-                                            Doctor</button></a></li>
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:regulatordash_published' %}"><button
+                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">Published Papers</button></a></li>
 
                             </ul>
                         </div>
@@ -137,7 +132,7 @@
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="dash-drop w-100 container-fluid">
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="#"><button
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:regulatordash_reports' %}"><button
                                             type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">Generate
                                             Report</button></a></li>
                             </ul>
@@ -160,11 +155,8 @@
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="dash-drop w-100 container-fluid">
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="#"><button
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:regulatordashprofile' %}"><button
                                             type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">View
-                                            Profile</button></a></li>
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="#"><button
-                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">Edit
                                             Profile</button></a></li>
 
                             </ul>
@@ -207,32 +199,199 @@
 
         <li class="nav-item">
             <div class="dropdown">
-                <a class="btn btn-secondary bg-light text-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                  Log Out
+                <a class="btn btn-secondary bg-light text-dark dropdown-toggle" href="#" role="button"
+                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    Log Out
                 </a>
-              
-                <ul class="dropdown-menu "  aria-labelledby="dropdownMenuLink">
-                  <li ><a class="nav-link fs- text-bold" href="{% url 'regs:home' %}"
-                    style="text-decoration: none; color:rgb(219, 45, 45)"><i class="bi bi-box-arrow-right"></i> &nbsp; Log
-                    Out </a></li>
+
+                <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                    <li><a class="nav-link fs- text-bold" href="{% url 'regs:home' %}"
+                            style="text-decoration: none; color:rgb(219, 45, 45)"><i class="bi bi-box-arrow-right"></i>
+                            &nbsp; Log
+                            Out </a></li>
                 </ul>
-              </div>
+            </div>
         </li>
 
 
 
     </ul>
     <!-- nav bar ends here -->
-    <!-- nav tabs start here-->
-    <div class="tab-content" id="v-pills-tabContent" style="margin-left:17vw">
-        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-            a
+
+    <!-- main content starts here -->
+
+    <div class="py-5" style="margin-left:17vw" style="overflow-x: auto;">
+        <!--statistical data section  -->
+        <div class="container px-4">
+            <!-- row 1 of statistics -->
+            <div class="row gx-5 py-3">
+                <div class="col">
+                    <div class="p-3 border bg-light shadow " style="border-radius: 15px;">
+                        <h3>Hospitals Registered 43 </h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3 border bg-light text-success shadow" style="border-radius: 15px;">
+                        <h3>Researches Published 32</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3 border bg-light text-warning shadow" style="border-radius: 15px;">
+                        <h3>Patients Registered 23</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- row 2 of statistics -->
+            <div class="row gx-5 py-3">
+                <div class="col">
+                    <div class="p-3 border bg-light text-dark shadow" style="border-radius: 15px;">
+                        <h3>Doctors Registered 43 </h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3 border bg-light text-secondary shadow" style="border-radius: 15px;">
+                        <h3>Cited Publications 32</h3>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3 border bg-light text-info shadow" style="border-radius: 15px;">
+                        <h3>Data Requests 23</h3>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">b</div>
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">c</div>
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">d</div>
+
+
+        {% block regulatorlayout %}
+        <!-- data requests section starts here -->
+        <!-- table for data requests -->
+        <div class="container py-5 col px-4">
+            <div class=" row  w-100 ">
+                <form class="row row-cols-lg-auto  ">
+                    <div class="col-7">
+                      <label class="visually-hidden" for="search">Search</label>
+                      <div class="input-group">
+                        <div class="input-group-text">Search</div>
+                        <input type="search" class="form-control col-12" id="search_data_requests" placeholder="search data request">
+                      </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row px-3">
+                <table class="table table-responsive table-lg table-bordered bg-light caption-top " aria-label="some"
+                    style="border-radius: 15px;" style="width:85vw;">
+                    <caption>Data Requests</caption>
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col"># (S/NO)</th>
+                            <th scope="col">Data Request Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Date Request</th>
+                            <th scope="col">Request Status</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>
+                                <form action="" method="get">
+                                    <select name=""  id="approval-select" class="form-select text-center" style="color:white; background-color: gray;">
+                                        <option value="pending" default style="color:white; background-color: gray;">Pending</option>
+                                        <option value="approved" style="background-color:green; color:white;">Approved</option>
+                                        <option value="rejected" style="background-color:red; color:white;">Rejected</option>
+                                    </select>
+                                </form>
+                                
+                                <script>
+                                    const selectElement = document.getElementById("approval-select");
+                                    selectElement.addEventListener("change", function () {
+                                        const selectedOption = this.options[this.selectedIndex];
+                                        selectElement.style.backgroundColor = selectedOption.style
+                                            .backgroundColor;
+                                        selectElement.style.color = selectedOption.style.color;
+                                    });
+                                </script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry the Bird</td>
+                            <td>@twitter</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            
+        </div>
+        <!-- data request section ends  here  -->
+        <!-- table for recent publications -->
+        <div class="container py-5 px-4">
+            <div class=" row  w-100 ">
+                <form class="row row-cols-lg-auto  ">
+                    <div class="col-7">
+                      <label class="visually-hidden" for="search">Search</label>
+                      <div class="input-group">
+                        <div class="input-group-text">Search</div>
+                        <input type="search" class="form-control col-12" id="search_publications" placeholder="search publications">
+                      </div>
+                    </div>
+                </form>
+            </div>
+            <table class="table table-responsive table-lg table-bordered bg-light caption-top " aria-label="some"
+                style="border-radius: 15px;" style="width:85vw;">
+                <caption>Publications</caption>
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col"># (S/NO)</th>
+                        <th scope="col"> Publication Title</th>
+                        <th scope="col">Publishers</th>
+                        <th scope="col">Date Published</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry the Bird</td>
+                        <td>@twitter</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <!-- nav tabs start here-->
     <!-- nav -tabs end here-->
+    {% endblock %}
+    <!-- main content ends here -->
+
     <!-- contentbar ends here -->
     <!-- main frame ends here -->
     <!-- java script links -->
@@ -244,6 +403,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    
+
 </body>
 
 </html>
