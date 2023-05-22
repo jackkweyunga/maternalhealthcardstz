@@ -1,11 +1,16 @@
-// utilizing inbuilt web browser js for loading animation
+// checking if DOM is loaded
 
-window.addEventListener('load', function() {
-    // Delay the display of page contents by 3 seconds
-    setTimeout(function() {
-      document.getElementById('loader').style.display = 'none'; // Hide the loader
-      //document.getElementById('content').style.display = 'block'; // Show the page contents
-    }, 3000);
-  });
-  
+function checkDOMLoaded() {
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    console.log('DOM has loaded!');
+    // code to handle the loaded DOM goes here
+    document.getElementById('loader').style.display = 'none';
+  } else {
+    console.log('DOM is still loading...');
+    document.getElementById('loader').style.display = 'block';
+
+  }
+}
+// calling the function
+document.addEventListener('DOMContentLoaded', checkDOMLoaded);
 

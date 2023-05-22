@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    {% include './loader.html' %}
 {% load static %}
 <head>
     <meta charset="UTF-8">
@@ -54,7 +55,7 @@
     <div class="container position-fixed   start-25 " style=" top : 25vh ; left : 17vw">
         <div class="row">
             <div class="col w-25 ">
-                <h1 class="display-2  "> Digitizing collection of maternal health data in Tanzania. </h1>
+                <h1 class="display-3  "> Digitizing collection of maternal health data in Tanzania. </h1>
                 <p class=" lead " style=" font-size : 1.5rem ">Revolutionizing the way maternal health data is processed
                     in Tanzania by digitizing maternal health cards.</p>
                     <a href="{% url 'regs:stakeholders'%}" style="text-decoration: none; " > <button type="button" class="btn btn-outline-primary btn-lg w-50 " style="border-radius: 50px;">SIGN IN </button> </a>
