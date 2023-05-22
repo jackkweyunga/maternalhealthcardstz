@@ -28,6 +28,7 @@ urlpatterns = [
     path("visualdata", views.regulatordash_visualdata, name="visualdata"),
     path("regulatordash_published", views.regulatordash_published, name="regulatordash_published"),
     path("regulatordash_reports", views.regulatordash_reports, name="regulatordash_reports"),
+    path("loader", views.loader, name="loader"),
 
 ]
 

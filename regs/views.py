@@ -63,5 +63,8 @@ def regulatordash_published(request):
 def regulatordash_reports(request):
     return render(request, 'regs/regulatordash_reports.html')
 
+def loader(request):
+    return render(request, 'regs/loader.html')
+
 # classical views with classes
 # from django.views import generic

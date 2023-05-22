@@ -1,6 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
+
 <!-- {% load static %} -->
+
 
 <head>
     <meta charset="UTF-8">
@@ -46,8 +49,9 @@
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <ul class="dash-drop w-100 container-fluid">
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:regulatordash' %}"><button
-                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">Home
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; "
+                                        href="{% url 'regs:regulatordash' %}"><button type="button"
+                                            class="w-100 btn btn-secondary" style="opacity: 0.7;">Home
                                             Page</button></a></li>
                             </ul>
                         </div>
@@ -76,11 +80,14 @@
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="dash-drop w-100 container-fluid">
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:regulatordash_hospitals' %}"><button
-                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">View Hospitals</button></a></li>
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:visualdata' %}"><button
-                                            type="button" class="w-100 btn btn-secondary"
-                                            style="opacity: 0.7;">Visualize Data</button></a></li>
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; "
+                                        href="{% url 'regs:regulatordash_hospitals' %}"><button type="button"
+                                            class="w-100 btn btn-secondary" style="opacity: 0.7;">View
+                                            Hospitals</button></a></li>
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; "
+                                        href="{% url 'regs:visualdata' %}"><button type="button"
+                                            class="w-100 btn btn-secondary" style="opacity: 0.7;">Visualize
+                                            Data</button></a></li>
                             </ul>
                         </div>
                         <style>
@@ -109,8 +116,10 @@
                         aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="dash-drop w-100 container-fluid">
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:regulatordash_published' %}"><button
-                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">Published Papers</button></a></li>
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; "
+                                        href="{% url 'regs:regulatordash_published' %}"><button type="button"
+                                            class="w-100 btn btn-secondary" style="opacity: 0.7;">Published
+                                            Papers</button></a></li>
 
                             </ul>
                         </div>
@@ -132,8 +141,9 @@
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="dash-drop w-100 container-fluid">
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:regulatordash_reports' %}"><button
-                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">Generate
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; "
+                                        href="{% url 'regs:regulatordash_reports' %}"><button type="button"
+                                            class="w-100 btn btn-secondary" style="opacity: 0.7;">Generate
                                             Report</button></a></li>
                             </ul>
                         </div>
@@ -155,8 +165,9 @@
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="dash-drop w-100 container-fluid">
-                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; " href="{% url 'regs:regulatordashprofile' %}"><button
-                                            type="button" class="w-100 btn btn-secondary" style="opacity: 0.7;">View
+                                <li class=" py-1"><a class="link-dash " style="text-decoration: none; "
+                                        href="{% url 'regs:regulatordashprofile' %}"><button type="button"
+                                            class="w-100 btn btn-secondary" style="opacity: 0.7;">View
                                             Profile</button></a></li>
 
                             </ul>
@@ -269,11 +280,12 @@
             <div class=" row  w-100 ">
                 <form class="row row-cols-lg-auto  ">
                     <div class="col-7">
-                      <label class="visually-hidden" for="search">Search</label>
-                      <div class="input-group">
-                        <div class="input-group-text">Search</div>
-                        <input type="search" class="form-control col-12" id="search_data_requests" placeholder="search data request">
-                      </div>
+                        <label class="visually-hidden" for="search">Search</label>
+                        <div class="input-group">
+                            <div class="input-group-text">Search</div>
+                            <input type="search" class="form-control col-12" id="search_data_requests"
+                                placeholder="search data request">
+                        </div>
                     </div>
                 </form>
             </div>
@@ -299,13 +311,17 @@
                             <td>@mdo</td>
                             <td>
                                 <form action="" method="get">
-                                    <select name=""  id="approval-select" class="form-select text-center" style="color:white; background-color: gray;">
-                                        <option value="pending" default style="color:white; background-color: gray;">Pending</option>
-                                        <option value="approved" style="background-color:green; color:white;">Approved</option>
-                                        <option value="rejected" style="background-color:red; color:white;">Rejected</option>
+                                    <select name="" id="approval-select" class="form-select text-center"
+                                        style="color:white; background-color: gray;">
+                                        <option value="pending" default style="color:white; background-color: gray;">
+                                            Pending</option>
+                                        <option value="approved" style="background-color:green; color:white;">Approved
+                                        </option>
+                                        <option value="rejected" style="background-color:red; color:white;">Rejected
+                                        </option>
                                     </select>
                                 </form>
-                                
+
                                 <script>
                                     const selectElement = document.getElementById("approval-select");
                                     selectElement.addEventListener("change", function () {
@@ -334,8 +350,8 @@
                     </tbody>
                 </table>
             </div>
-            
-            
+
+
         </div>
         <!-- data request section ends  here  -->
         <!-- table for recent publications -->
@@ -343,11 +359,12 @@
             <div class=" row  w-100 ">
                 <form class="row row-cols-lg-auto  ">
                     <div class="col-7">
-                      <label class="visually-hidden" for="search">Search</label>
-                      <div class="input-group">
-                        <div class="input-group-text">Search</div>
-                        <input type="search" class="form-control col-12" id="search_publications" placeholder="search publications">
-                      </div>
+                        <label class="visually-hidden" for="search">Search</label>
+                        <div class="input-group">
+                            <div class="input-group-text">Search</div>
+                            <input type="search" class="form-control col-12" id="search_publications"
+                                placeholder="search publications">
+                        </div>
                     </div>
                 </form>
             </div>
@@ -395,15 +412,16 @@
     <!-- contentbar ends here -->
     <!-- main frame ends here -->
     <!-- java script links -->
-
+    <script src="{% static 'js/main.js' %}"></script>
     <!-- for tabs -->
+
 
 
     <!-- for bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-    
+
 
 </body>
 
