@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+# nida module
+from nida import load_user
 
-# Create your views here.
+
+#rendering just pages
 
 def index(request):
     return render(request, 'regs/index.html')
@@ -66,5 +69,35 @@ def regulatordash_reports(request):
 def loader(request):
     return render(request, 'regs/loader.html')
 
-# classical views with classes
-# from django.views import generic
+def hospitaldash(request):
+    return render(request, 'regs/hospitaldash.html')
+
+def hospitaldash_registerpatient(request):
+    return render(request, 'regs/hospitaldash_registerpatient.html')
+
+def hospitaldash_profile(request):
+    return render(request, 'regs/hospitaldash_profile.html')
+
+def hospitaldash_delivery(request):
+    return render(request, 'regs/hospitaldash_delivery.html')
+
+def hospitaldash_medicaldata(request):
+    return render(request, 'regs/hospitaldash_medicaldata.html')
+
+
+# function to load user details from nida
+
+def retrieve_user(request):
+    if request.method == 'POST':
+        national_id = request.POST.get('nida_no')
+        user_detail = load_user(national_id=national_id, json = True )
+        print(user_detail)
+        
+
+        context = {
+            'user_detail': user_detail
+        }
+        return render(request, 'regs/hospitaldash_medicaldata.html', context)
+    else:
+        return render(request, 'regs/hospitaldash_medicaldata.html')
+    

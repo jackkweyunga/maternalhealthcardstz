@@ -1,0 +1,263 @@
+{% extends './hospitaldash.html' %}
+{% block hospital_layout %}
+
+
+<div class="container px-5">
+    <div class="container-fluid mx-auto position-relative">
+        <div class="container">
+            <form action="{% url 'regs:retrieve_user' %}" method="POST">
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="clinic_name" class="col-sm-10 col-form-label">National Identification Number
+                            (NIN)</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="nida_no" name="nida_no"
+                                    placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="padding-top: 3.5vh;">
+                        <button type="submit" class="btn btn-primary mb-3">Retrieve Information</button>
+                    </div>
+                </div>
+                <div class="row-sm-12">
+                    <table class="table table-striped table-responsive caption-top table-bordered" aria-label="National Identification Information">
+                        <caption>Citizen Information</caption>
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in user_detail.items %}
+                            <tr>
+                                <td>{{ key }}</td>
+                                <td>{{ value }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+form -1 ya register
+
+<div class="container-fluid mx-auto position-relative " style=" top:10vh; ">
+        <div class="container-fluid ">
+            <div>
+                <h2 class="display-6 text-center fw-normal text-uppercase"> Registering a Mother </h2>
+            </div>
+            <form action="" method="POST" class="py-3">
+                <!-- row-1 -->
+                <div class=" row ">
+                    <div class="col">
+                        <label for="clinic_name" class="col-sm-10 col-form-label">Clinic Name</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="clinic_name" value="" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="Street /Village" class="col-sm-10 col-form-label">Street/
+                            Village</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="street_name" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="Street Chairperson" class="col-sm-10 col-form-label">Street
+                            Chairperson</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="street_chairperson" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="Mother's Registration Number" class="col-sm-12 col-form-label">Mother's
+                            Registration
+                            Number</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="mother_reg_no" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- row-2 -->
+                <div class=" row ">
+                    <div class="col">
+                        <label for="mothers name" class="col-sm-10 col-form-label">Mother's Name</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="mother_name" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="Mother's Age" class="col-sm-10 col-form-label ">Mother's Age</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="date" required class="form-control" id="mothers_dob" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="mothers education" class="col-sm-10 col-form-label ">Mother's
+                            Education</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="mothers_education" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="mothers occupation" class="col-sm-10 col-form-label ">Mother's
+                            Occupation</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="mothers_occupation" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- row-3 -->
+                <div class=" row ">
+                    <div class="col">
+                        <label for="Husband name" class="col-sm-10 col-form-label">Husband's Name</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="husband_name" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="Husband's Age" class="col-sm-10 col-form-label ">Husband's
+                            BirthDate</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="date" required class="form-control" id="husband_dob" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="husband education" class="col-sm-10 col-form-label ">Husband's
+                            Education</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="husband_education" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="husband occupation" class="col-sm-10 col-form-label ">Husband's
+                            Occupation</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="husband_occupation" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- row-4 -->
+                <div class=" row ">
+                    <div class="col">
+                        <label for="Mosquito Net License" class="col-sm-10 col-form-label">Mosquito Net
+                            License</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="mosquito_net_license"
+                                    placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="mother's phone number" class="col-sm-10 col-form-label ">Mother's Phone
+                            Number</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="text" required class="form-control" id="mothers_phone_number"
+                                    placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="password" class="col-sm-10 col-form-label ">Mother's Email</label>
+                        <div class="mb-3 row">
+                            <div class="col-sm-10">
+                                <input type="email" required class="form-control" id="mothers_email" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <label for="Mothers' Height" class="col-sm-12 col-form-label ">Mothers'
+                                    Height</label>
+                                <div class="mb-3 row">
+                                    <div class="col-sm-10">
+                                        <input type="number" required class="form-control" id="mothers_height"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="Father's Height" class="col-sm-12 col-form-label ">Father's
+                                    Height</label>
+                                <div class="mb-3 row">
+                                    <div class="col-sm-10">
+                                        <input type="number" required class="form-control" id="mothers_height"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3 w-100 position-relative "
+                        style=" border-radius: 6px ;">Save</button>
+                </div>
+        </div>
+        </form>
+    </div>
+
+
+mothers patient model
+
+class MotherRegister(models.Model):
+    clinic_name = models.CharField(max_length=100)
+    street_village = models.CharField(max_length=100)
+    street_chairperson = models.CharField(max_length=100)
+    mother_registration_number = models.CharField(max_length=20)
+    mother_name = models.CharField(max_length=100)
+    mother_age = models.PositiveIntegerField()
+    mother_education = models.CharField(max_length=100)
+    mother_occupation = models.CharField(max_length=100)
+    husband_name = models.CharField(max_length=100)
+    husband_birthdate = models.DateField()
+    husband_education = models.CharField(max_length=100)
+    husband_occupation = models.CharField(max_length=100)
+    mosquito_net_license = models.BooleanField(default=False)
+    mother_phone_number = models.CharField(max_length=20)
+    mother_email = models.EmailField()
+    mother_height = models.DecimalField(max_digits=5, decimal_places=2)
+    father_height = models.DecimalField(max_digits=5, decimal_places=2)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

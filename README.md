@@ -13,7 +13,7 @@ We aim to ensure the solution is adopted by the ministry of health in Tanzania a
 
 ##  Project Inspiration
 
-    I admire the work done by multiple countries i  n Europe in digitizing their health care and
+    I admire the work done by multiple countries in Europe in digitizing their health care and
     would love to bring that in Tanzania , furthermore after doing research and seeing the 
     potential it holds in improving the healthcare field in a broad way , gives me hope 
     that the project will be a success.

@@ -29,6 +29,12 @@ urlpatterns = [
     path("regulatordash_published", views.regulatordash_published, name="regulatordash_published"),
     path("regulatordash_reports", views.regulatordash_reports, name="regulatordash_reports"),
     path("loader", views.loader, name="loader"),
+    path("hospitaldash", views.hospitaldash, name="hospitaldash"),
+    path("registerpatient", views.hospitaldash_registerpatient, name="registerpatient"),
+    path("hospitaldashprofile", views.hospitaldash_profile, name="hospitaldashprofile"),
+    path("hospitaldash_delivery", views.hospitaldash_delivery, name="hospitaldash_delivery"),
+    path("hospitaldash_medicaldata", views.hospitaldash_medicaldata, name="hospitaldash_medicaldata"),
+    path("retrieve_user", views.retrieve_user, name="retrieve_user"),
 
 ]
 

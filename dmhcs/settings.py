@@ -17,6 +17,7 @@ from pathlib import Path
 import psycopg2 
 import os
 from dotenv import load_dotenv
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -145,3 +146,11 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# configuring media root , reminder to create a media directory at the project directory
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# configuring media url
+
+MEDIA_URL = "/media/"
