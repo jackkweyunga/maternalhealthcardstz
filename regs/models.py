@@ -5,7 +5,7 @@ from django.core.validators import RegexValidator
 #  models here.
 
 class Hospital(models.Model):
-    hospital_id = models.CharField(max_length=10)
+    hospital_id = models.CharField(max_length=20, primary_key=True)
     phone_number = models.CharField(max_length=20)
     email = models.EmailField()
     hospital_type = models.CharField(max_length=50)
@@ -23,14 +23,15 @@ class Researcher(models.Model):
     institution_name = models.CharField(max_length=100)
     institution_id = models.CharField(max_length=10)
     phone_number = models.CharField(max_length=20)
-    national_id = models.CharField(max_length=50)
+    res_national_id = models.CharField(max_length=50, primary_key=True)
     email = models.EmailField()
     password = models.CharField(max_length=128)
-    confirm_password = models.CharField(max_length=128)
     agree_terms = models.BooleanField(default=False)
 
 
 class Pregnancy(models.Model):
+
+    card_no = models.AutoField(primary_key=True)
     pregnancy_count = models.PositiveIntegerField()
     birth_count = models.PositiveIntegerField()
     children_alive = models.PositiveIntegerField()
@@ -41,6 +42,9 @@ class Pregnancy(models.Model):
     destruction_cause = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.card_no)
 
     
 class PreviousPregnancyInfo(models.Model):
@@ -61,6 +65,8 @@ class PreviousPregnancyInfo(models.Model):
     waist_disability = models.BooleanField()
     excess_bleeding_after_delivery = models.BooleanField()
     mother_has_twins = models.BooleanField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 class Patient(models.Model):
     BLOOD_GROUP_CHOICES = (
@@ -86,6 +92,8 @@ class Patient(models.Model):
     blood_count = models.TextField()
     proteinuria = models.TextField()
     other_tests = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.blood_group} {self.blood_rhesus_factor}"
@@ -130,6 +138,8 @@ class ClinicalAttendance(models.Model):
     malaria_dose = models.CharField(max_length=3, choices=YES_NO_CHOICES, verbose_name="Malaria Dose (SP)(from wk-14)")
     mebandozole = models.CharField(max_length=100, verbose_name="Mebandozole (500 gm start)")
     tetanus_vaccine = models.CharField(max_length=4, choices=TT_CHOICES, verbose_name="Tetanus Vaccine")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 class MotherChildTransmission(models.Model):
     PMTCT_ART_CHOICES = [
@@ -173,12 +183,15 @@ class MotherChildTransmission(models.Model):
     comment_on_situation = models.CharField(max_length=15, choices=COMMENT_CHOICES,
                                             verbose_name="Comment on the Situation")
     mc_personnel_sign = models.ImageField(upload_to='mc_personnel_sign/', verbose_name="Sign of the MC Personnel")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 # delivery pain tables
 
 # table 1
 
 class Admission(models.Model):
+    admission_id = models.BigAutoField(primary_key=True)
     hospital_name = models.CharField(max_length=100, verbose_name="Admitted Hospital Name")
     admission_date = models.DateField(verbose_name="Admission Date")
     pain_begin_date = models.DateTimeField(verbose_name="Pain Begins")
@@ -186,9 +199,14 @@ class Admission(models.Model):
     pregnancy_age_weeks = models.PositiveIntegerField(verbose_name="Age Of Pregnancy (Week)")
     pregnancy_height = models.FloatField(verbose_name="Height Of Pregnancy")
     womb_position = models.CharField(max_length=100, verbose_name="Child Womb Position")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.hospital_name
+    
+    def __str__(self):
+        return str(self.admission_id)
     
 # table 2
 
@@ -200,6 +218,8 @@ class PelvicExam(models.Model):
     examiners_comments = models.TextField(verbose_name="Examiner's Comments")
     medical_personnel_name = models.CharField(max_length=100, verbose_name="Name of Medical Personnel")
     mc_personnel_position = models.CharField(max_length=100, verbose_name="Position of MC Personnel")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Pelvic Exam #{self.pk}"
@@ -220,6 +240,8 @@ class BirthComplications(models.Model):
     blood_deficiency_below_8_5gmd = models.BooleanField(verbose_name="Blood Deficiency Below 8.5gm/d")
     placental_blockage_large_child_size = models.BooleanField(verbose_name="Placental Blockage / Large Child Size")
     meconium = models.BooleanField(verbose_name="Meconium")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Birth Complications #{self.pk}"
@@ -239,6 +261,8 @@ class Delivery(models.Model):
     medical_personnel_sewn_tear = models.CharField(max_length=100, verbose_name="Name of Medical Personnel Sewn Tear")
     mc_personnel_position = models.CharField(max_length=100, verbose_name="Position of MC Personnel")
     blood_pressure_after_delivery = models.CharField(max_length=100, verbose_name="Blood Pressure After Delivery")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Delivery #{self.pk}"
@@ -254,6 +278,8 @@ class DeliverySteps(models.Model):
     further_delivery_comments = models.TextField(verbose_name="Further Delivery Comments")
     arvs_after_delivery = models.BooleanField(verbose_name="ARVs After Delivery")
     art_intake = models.BooleanField(verbose_name="ART Intake")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Delivery Steps #{self.pk}"
@@ -267,6 +293,7 @@ class Child(models.Model):
     NVP_CHOICES = [('1 week', '1 week'), ('4 weeks', '4 weeks')]
     NUTRITION_CHOICES = [('EBF', 'EBF'), ('RF', 'RF')]
 
+    child_id = models.BigAutoField(primary_key=True)
     weight = models.DecimalField(max_digits=4, decimal_places=1, verbose_name="Child's Weight")
     sex = models.CharField(max_length=10, choices=SEX_CHOICES, verbose_name="Child's Sex")
     apgar_score = models.CharField(max_length=10, choices=APGAR_CHOICES, verbose_name="APGAR Score")
@@ -278,6 +305,8 @@ class Child(models.Model):
     cant_suck_milk = models.BooleanField(verbose_name="Child Can't Suck Milk")
     apgar_score_5min_not_breathing = models.BooleanField(verbose_name="APGAR Score 5 minutes (Child not breathing)")
     child_physique_comments = models.TextField(verbose_name="Child Physique Observation: Comments")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Child #{self.pk}"
@@ -285,15 +314,20 @@ class Child(models.Model):
 # publication
 
 class ResearchPublication(models.Model):
+    publication_no = models.BigAutoField(primary_key=True)
     authors = models.CharField(max_length=255, verbose_name="Name of Authors")
     publication_date = models.DateField(verbose_name="Date Of Publication")
     title = models.CharField(max_length=255, verbose_name="Research Title")
     description = models.TextField(verbose_name="Short Description")
     medical_field = models.CharField(max_length=100, verbose_name="Medical Field")
     article_file = models.FileField(upload_to="articles/", verbose_name="Upload Article")
+    res_national_id = models.ForeignKey(Researcher, on_delete=models.CASCADE) # foreign key from researcher model
 
     def __str__(self):
         return self.titled
+    
+    def __str__(self):
+        return str(self.publication_no)
 # data request
 
 class ResearchDataRequest(models.Model):
@@ -302,13 +336,18 @@ class ResearchDataRequest(models.Model):
         ('excel', 'Excel'),
     ]
 
+    request_no = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=255, verbose_name="Research Title")
     short_description = models.CharField(max_length=100, verbose_name="Short Title Description")
     data_description = models.TextField(verbose_name="Describe Data Requested")
     request_date = models.DateField(verbose_name="Date Of Request")
     data_format = models.CharField(max_length=10, choices=DATA_FORMAT_CHOICES, verbose_name="Choose Data Format")
     research_permit = models.FileField(upload_to="research_permits/", verbose_name="Upload Research Permit", help_text="Permit should be in PDF format")
+    res_national_id = models.ForeignKey(Researcher, on_delete=models.CASCADE) # foreign key from researcher model
 
     def __str__(self):
         return self.title
+    
+    def __str__(self):
+        return str(self.request_no)
     

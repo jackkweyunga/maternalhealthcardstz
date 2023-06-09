@@ -261,3 +261,7 @@ class MotherRegister(models.Model):
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+example of ForeignKey
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
