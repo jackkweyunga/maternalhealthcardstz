@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  color: #121212;
 }
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {

@@ -351,3 +351,21 @@ class ResearchDataRequest(models.Model):
     def __str__(self):
         return str(self.request_no)
     
+
+# regulator inherits from abstract user
+
+class Regulator(models.Model):
+    regulator_id = models.CharField(max_length=20, unique=True)
+    fname = models.CharField(max_length=50)
+    lname = models.CharField(max_length=50)
+    regulator_position = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=20)
+    national_id = models.CharField(max_length=20, unique=True)
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=128)
+    username = models.CharField(max_length=150, unique=True)
+
+    # Additional fields or methods can be added as needed
+
+    def __str__(self):
+        return self.username

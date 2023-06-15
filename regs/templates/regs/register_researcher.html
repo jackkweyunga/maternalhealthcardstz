@@ -2,9 +2,9 @@
 {% extends './index.html' %}
 
 {% block index-nav %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style=" font-size: 1.2rem ;">
+<nav class="navbar navbar-expand-lg navbar-light " style=" font-size: 1.2rem ;">
     <div class="container-fluid">
-        <a class="navbar-brand  display-6 fw-bold " href="#" style="position:relative; left:17vw;">DMHCS</a>
+        <a class="navbar-brand  display-6 fw-bold " href="{% url 'regs:home' %}" style="position:relative; left:17vw;">DMHCS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
                         <a class="nav-link" href="{%    url 'regs:regulator'  %}">Regulators</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'regs:research' %}">Researchers</a>
+                        <a class="nav-link active" href="{% url 'regs:register_researcher' %}">Researchers</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" >FAQ's</a>
@@ -40,57 +40,58 @@
     <div>
         <p class="display-6 text-center">Register as a Researcher</p>
     </div>
-    <form action="" method="get" class=" row needs-validation ">
+    <form action="{% url 'regs:register_researcher' %}" method="POST" class=" row  ">
+        {% csrf_token %}
         <div class=" d-grid g-2">
             <div class="mb-3 row">
                 <label for="first Name" class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
-                    <input type="text" required class="form-control" id="researcher_f_name">
+                    <input type="text" required class="form-control" id="researcher_f_name" name="first_name">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="Second Name" class="col-sm-2 col-form-label">Second Name</label>
                 <div class="col-sm-10">
-                    <input type="text" required class="form-control" id="researcher_s_name">
+                    <input type="text" required class="form-control" id="researcher_s_name" name="last_name">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="Insitution Name" class="col-sm-2 col-form-label">Insitution Name</label>
                 <div class="col-sm-10">
-                    <input type="text" required class="form-control" id="i_name"
+                    <input type="text" required class="form-control" id="i_name" name="institution_name"
                         placeholder="University Of Dar es Salaam">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="first Name" class="col-sm-2 col-form-label">Institution ID</label>
                 <div class="col-sm-10">
-                    <input type="number" required class="form-control" id="researcher_insitution_id" placeholder="">
+                    <input type="number" required class="form-control" id="researcher_insitution_id" placeholder="" name="institution_id" >
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="Phone Number" class="col-sm-2 col-form-label">Phone Number</label>
                 <div class="col-sm-10">
-                    <input type="tel" required class="form-control" id="researcher_phone_number"
+                    <input type="tel" required class="form-control" id="researcher_phone_number" name="phone_number"
                         placeholder="25575364****">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="national ID" class="col-sm-2 col-form-label">National ID</label>
                 <div class="col-sm-10">
-                    <input type="text" required class="form-control" id="national_id" placeholder="19870523***********">
+                    <input type="text" required class="form-control" id="national_id" placeholder="19870523***********" name="res_national_id">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="first Name" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="email" required class="form-control" id="researcher_email"
+                    <input type="email" required class="form-control" id="researcher_email" name="email"
                         placeholder="alexgmkwizu@gmail.com">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="password" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                    <input type="password" required class="form-control" id="researchers_password"
+                    <input type="password" required class="form-control" id="researchers_password" name="password"
                         placeholder="************">
                 </div>
             </div>
@@ -103,7 +104,7 @@
             </div>
             <div class="mb-3 row mx-5" style="position: relative; left:5.5vw;">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <input class="form-check-input" type="checkbox" value="True" id="invalidCheck" required name="agree_terms" >
                     <label class="form-check-label" for="invalidCheck">
                         Agree to terms and conditions
                     </label>
@@ -120,7 +121,7 @@
             </div>
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary mb-3 w-100"
-                    style=" border-radius: 50px ;">Register</button>
+                    style=" border-radius: 5px ;">Register</button>
             </div>
 
         </div>

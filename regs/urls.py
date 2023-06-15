@@ -9,7 +9,7 @@ app_name = "regs"
 
 urlpatterns = [ 
     path("", views.index, name="home"),
-    path("research", views.research, name="research"),
+    path("register_researcher", views.register_research, name="register_researcher"),
     path("patient", views.patient, name="patient"),
     path("regulator", views.regulator, name="regulator"),
     path("hospital", views.hospital, name="hospital"),

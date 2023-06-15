@@ -1,16 +1,44 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 # nida module
 from nida import load_user
-
+from .models import Researcher, Patient, Hospital, Regulator
 
 #rendering just pages
 
 def index(request):
     return render(request, 'regs/index.html')
 
-def research(request):
+def register_research(request):
+    if request.method == 'POST':
+            print(request.POST)
+            first_name = request.POST.get('first_name')
+            last_name = request.POST.get('last_name')
+            institution_name = request.POST.get('institution_name')
+            institution_id = request.POST.get('institution_id')
+            phone_number = request.POST.get('phone_number')
+            res_national_id = request.POST.get('res_national_id')
+            email = request.POST.get('email')
+            password = request.POST.get('password')
+            agree_terms = request.POST.get('agree_terms')
+            
+            Researcher.objects.create(
+                first_name=first_name,
+                last_name=last_name,
+                institution_name=institution_name,
+                institution_id=institution_id,
+                phone_number=phone_number,
+                res_national_id=res_national_id,
+                email=email,
+                password=password,
+                agree_terms=agree_terms
+            )
+            
+            return redirect('regs/register_researcher.html')  # Assuming you have a URL pattern called 'success_page'
+        
     return render(request, 'regs/register_researcher.html')
+
+        
 
 def patient(request):
     return render(request, 'regs/login_patient.html')
@@ -25,7 +53,10 @@ def forgotpassword(request):
     return render(request, 'regs/forgot_password.html')
 
 def loginresearcher(request):
+    if request.method == 'POST':
+        print(request.POST)
     return render(request, 'regs/login_researcher.html')
+
 
 def registeringpatient(request):
     return render(request, 'regs/dash_register_patient.html')
