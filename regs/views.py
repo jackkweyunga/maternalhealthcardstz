@@ -38,38 +38,15 @@ def register_research(request):
         
     return render(request, 'regs/register_researcher.html')
 
-        
-
-def patient(request):
-    return render(request, 'regs/login_patient.html')
-
-def regulator(request):
-    return render(request, 'regs/login_regulator.html')
-
-def hospital(request):
-    return render(request, 'regs/hospital_register.html')
-
-def forgotpassword(request):
-    return render(request, 'regs/forgot_password.html')
-
-def loginresearcher(request):
-    if request.method == 'POST':
-        print(request.POST)
-    return render(request, 'regs/login_researcher.html')
-
-
+# patient views
 def registeringpatient(request):
     return render(request, 'regs/dash_register_patient.html')
 
-def stakeholders(request):
-    return render(request, 'regs/stakeholders.html')
-
-def loginhospital(request):
-    return render(request, 'regs/hospital_login.html')
-
+# main dashboard view
 def dashboard(request):
     return render(request, 'regs/dashboard.html')
 
+# research views
 def researchdashboard(request):
     return render(request, 'regs/researchdash.html')
 
@@ -79,6 +56,7 @@ def researchdashpublications(request):
 def researchdashprofile(request):
     return render(request, 'regs/researchdash_profile.html')
 
+# regulator views
 def regulatordash(request):
     return render(request, 'regs/regulatordash.html')
 
@@ -100,6 +78,7 @@ def regulatordash_reports(request):
 def loader(request):
     return render(request, 'regs/loader.html')
 
+# hospital dashboards
 def hospitaldash(request):
     return render(request, 'regs/hospitaldash.html')
 

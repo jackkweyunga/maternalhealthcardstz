@@ -30,16 +30,16 @@
                             <a class="nav-link active" aria-current="page" href="{% url 'regs:home' %}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{%    url 'regs:hospital'  %}">Hospital</a>
+                            <a class="nav-link" href="{%    url 'accounts:register_hospital'  %}">Hospital</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'regs:patient' %}">Patients</a>
+                            <a class="nav-link" href="{% url 'accounts:login_patient' %}">Patients</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{%    url 'regs:regulator'  %}">Regulators</a>
+                            <a class="nav-link" href="{%    url 'accounts:login_regulator'  %}">Regulators</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'regs:register_researcher' %}">Researchers</a>
+                            <a class="nav-link" href="{% url 'accounts:register_researcher' %}">Researchers</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" >FAQ's</a>
@@ -58,7 +58,7 @@
                 <h1 class="display-3  "> Digitizing collection of maternal health data in Tanzania. </h1>
                 <p class=" lead " style=" font-size : 1.5rem ">Revolutionizing the way maternal health data is processed
                     in Tanzania by digitizing maternal health cards.</p>
-                    <a href="{% url 'regs:stakeholders'%}" style="text-decoration: none; " > <button type="button" class="btn btn-outline-primary btn-lg w-50 " style="border-radius: 50px;">SIGN IN </button> </a>
+                    <a href="{% url 'accounts:stakeholders'%}" style="text-decoration: none; " > <button type="button" class="btn btn-outline-primary btn-lg w-50 " style="border-radius: 50px;">SIGN IN </button> </a>
                 <style>
                     a:hover{
                         text-decoration: none;

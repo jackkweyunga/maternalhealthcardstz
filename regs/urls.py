@@ -9,15 +9,7 @@ app_name = "regs"
 
 urlpatterns = [ 
     path("", views.index, name="home"),
-    path("register_researcher", views.register_research, name="register_researcher"),
-    path("patient", views.patient, name="patient"),
-    path("regulator", views.regulator, name="regulator"),
-    path("hospital", views.hospital, name="hospital"),
-    path("forgotpassword", views.forgotpassword, name="forgotpassword"),
-    path("loginresearcher", views.loginresearcher, name="loginresearcher"),
-    path("registeringpatient", views.registeringpatient, name="registeringpatient"),
-    path("stakeholders", views.stakeholders, name="stakeholders"),
-    path("loginhospital", views.loginhospital, name="loginhospital"),
+
     path("dashboard", views.dashboard, name="dashboard"),
     path("researchdashboard", views.researchdashboard, name="researchdashboard"),
     path("researchdashpublications", views.researchdashpublications, name="researchdashpublications"),
