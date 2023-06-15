@@ -1,0 +1,99 @@
+{% extends 'regs/index.html' %}
+{% block index-nav %}
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style=" font-size: 1.2rem ;">
+    <div class="container-fluid">
+        <a class="navbar-brand  display-6 fw-bold " href="#" style="position:relative; left:17vw;">DMHCS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class=" container w-100 ">
+            <div class="collapse navbar-collapse col align-self-end " id="navbarNav">
+                <ul class="navbar-nav " style="position:fixed; left: 51vw">
+                    <li class="nav-item">
+                        <a class="nav-link "  href="{% url 'regs:home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%    url 'regs:hospital'  %}">Hospital</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'regs:patient' %}">Patients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%    url 'regs:regulator'  %}">Regulators</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'regs:research' %}">Researchers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" >FAQ's</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+    <!-- main lock up starts -->
+    <div class="container-fluid position-relative mx-auto px-auto start-25 "
+        style=" top : 10vh ;  width:67vw;  ">
+        <div class="row mx-auto" style=" padding-bottom:3vh;" >
+            <h3 class="text-center text-bold display-3">LOGIN AS</h3>
+        </div>
+        <div class="row gx-5 gy-5">
+            <div class="col ">
+                <div class="p-3 ">
+                    <div class="card shadow " style="width:18rem; border-radius: 10px;">
+                        <img class="card-img-top" src="{% static '/images/hospital.jpg' %}" width="300" height="200" style="border-radius: 10px 10px 0px 0px;"
+                            alt="Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title">Login as Hospital</h5>
+                            <p class="card-text">Institutions that provide health care services to the community.</p>
+                            <a href="{% url 'regs:loginhospital' %}" class="btn btn-primary text-center">Login as Hospital</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-3">
+                    <div class="card shadow " style="width: 18rem; border-radius: 10px;">
+                        <img class="card-img-top" src="{% static '/images/patient.jpg' %}" width="300" height="200" style="border-radius: 10px 10px 0px 0px;"
+                            alt="Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title">Login as Patient</h5>
+                            <p class="card-text">Receives medical care, treatment, or attention from hospitals.</p>
+                            <a href="{% url 'regs:patient' %}" class="btn btn-primary text-center">Login as Patient</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="p-3">
+                    <div class="card shadow" style="width: 18rem; border-radius: 10px;">
+                        <img class="card-img-top" src="{% static '/images/research.jpg' %}" width="300" height="200" style="border-radius: 10px 10px 0px 0px;"
+                            alt="Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title">Login as Researcher</h5>
+                            <p class="card-text">Investigate, study, and explore specific health topics.</p>
+                            <a href="{% url 'regs:loginresearcher' %}" class="btn btn-primary text-center">Login as Researcher</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mx-auto">
+                <div class="p-3  ">
+                    <div class="card shadow" style="width: 18rem; border-radius: 10px;">
+                        <img class="card-img-top" src="{% static '/images/regulators.jpg' %}" width="300" height="200" style="border-radius: 10px 10px 0px 0px;"
+                            alt="Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title">Login as Regulator</h5>
+                            <p class="card-text"> Oversee and enforce compliance with regulations and policies.</p>
+                            <a href="{% url 'regs:regulator' %}" class="btn btn-primary text-center">Login as Regulator</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main lock up ends -->
+{% endblock %}
