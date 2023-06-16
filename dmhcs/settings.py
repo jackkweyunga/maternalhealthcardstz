@@ -155,3 +155,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # configuring media url
 
 MEDIA_URL = "/media/"
+
+# authentication configurattion
+
+AUTH_USER_MODEL = 'accounts.User'
+
+# session configuration
+SESSION_COOKIE_AGE = 3600 # 1 hour
