@@ -15,16 +15,16 @@
                         <a class="nav-link "  href="{% url 'regs:home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{%    url 'accounts:login_hospital'  %}">Hospital</a>
+                        <a class="nav-link" href="{%    url 'accounts:login'  %}?as=hospital">Hospital</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'accounts:login_patient' %}">Patients</a>
+                        <a class="nav-link" href="{% url 'accounts:login' %}?as=patient">Patients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{%    url 'accounts:login_regulator'  %}">Regulators</a>
+                        <a class="nav-link" href="{%    url 'accounts:login'  %}?as=regulator">Regulators</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'accounts:login_researcher' %}">Researchers</a>
+                        <a class="nav-link" href="{% url 'accounts:login' %}?as=researcher">Researchers</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" >FAQ's</a>
@@ -49,7 +49,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Login as Hospital</h5>
                             <p class="card-text">Institutions that provide health care services to the community.</p>
-                            <a href="{% url 'accounts:login_hospital' %}" class="btn btn-primary text-center">Login as Hospital</a>
+                            <a href="{% url 'accounts:login' %}?as=hospital" class="btn btn-primary text-center">Login as Hospital</a>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Login as Patient</h5>
                             <p class="card-text">Receives medical care, treatment, or attention from hospitals.</p>
-                            <a href="{% url 'accounts:login_patient' %}" class="btn btn-primary text-center">Login as Patient</a>
+                            <a href="{% url 'accounts:login' %}?as=patient" class="btn btn-primary text-center">Login as Patient</a>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Login as Researcher</h5>
                             <p class="card-text">Investigate, study, and explore specific health topics.</p>
-                            <a href="{% url 'accounts:login_researcher' %}" class="btn btn-primary text-center">Login as Researcher</a>
+                            <a href="{% url 'accounts:login' %}?as=researcher" class="btn btn-primary text-center">Login as Researcher</a>
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Login as Regulator</h5>
                             <p class="card-text"> Oversee and enforce compliance with regulations and policies.</p>
-                            <a href="{% url 'accounts:login_regulator' %}" class="btn btn-primary text-center">Login as Regulator</a>
+                            <a href="{% url 'accounts:login' %}?as=regulator" class="btn btn-primary text-center">Login as Regulator</a>
                         </div>
                     </div>
                 </div>

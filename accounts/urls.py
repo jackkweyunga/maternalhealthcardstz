@@ -8,13 +8,13 @@ from . import views
 app_name = "accounts"
 
 urlpatterns = [
-    path("stakeholders", views.stakeholders, name="stakeholders"),
-    path("login_patient", views.login_patient, name="login_patient"),   
-    path("login_hospital", views.login_hospital, name="login_hospital"),
+
+    # login page url
+    path("login", views.custom_login, name="login"),
+
     path("register_hospital", views.register_hospital, name="register_hospital"),
-    path("login_researcher", views.login_researcher, name="login_researcher"),
     path("register_researcher", views.register_researcher, name="register_researcher"),
-    path("login_regulator", views.login_regulator, name="login_regulator"),
+
     path("forgot_password", views.forgot_password, name="forgot_password"),
 
  ]

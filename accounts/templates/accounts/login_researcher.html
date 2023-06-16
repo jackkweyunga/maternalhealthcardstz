@@ -14,13 +14,13 @@
                         <a class="nav-link "  href="{% url 'regs:home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{%    url 'accounts:login_hospital'  %}">Hospital</a>
+                        <a class="nav-link" href="{%    url 'accounts:login'  %}?as=hospital">Hospital</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'accounts:login_patient' %}">Patients</a>
+                        <a class="nav-link" href="{% url 'accounts:login' %}?as=patient">Patients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{%    url 'accounts:login_regulator'  %}">Regulators</a>
+                        <a class="nav-link" href="{%    url 'accounts:login'  %}?as=regulator">Regulators</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="{% url 'accounts:register_researcher' %}">Researchers</a>
@@ -38,7 +38,7 @@
         <div>
             <p class="display-6 text-center">Login as a Researcher</p>
         </div>
-        <form action="{% url 'accounts:login_researcher' %}" method="post" class=" row needs-validation ">
+        <form action="{% url 'accounts:login' %}?as=researcher" method="post" class=" row needs-validation ">
             {% csrf_token %}
             {% if error %}
             {{error}}
