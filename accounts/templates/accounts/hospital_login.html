@@ -1,67 +1,74 @@
 {% extends 'regs/index.html' %}
 {% block index-nav %}
-<nav class="navbar navbar-expand-lg navbar-light " style=" font-size: 1.2rem ;">
-    <div class="container-fluid">
-        <a class="navbar-brand  display-6 fw-bold " href="#" style="position:relative; left:17vw;">DMHCS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class=" container w-100 ">
-            <div class="collapse navbar-collapse col align-self-end " id="navbarNav">
-                <ul class="navbar-nav " style="position:fixed; left: 51vw">
-                    <li class="nav-item">
-                        <a class="nav-link"  href="{% url 'regs:home' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{%    url 'accounts:login'  %}?as=hospital">Hospital</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'accounts:login' %}?as=patient">Patients</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{%    url 'accounts:login'  %}?as=regulator">Regulators</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'accounts:login' %}?as=researcher">Researchers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" >FAQ's</a>
-                    </li>
-                </ul>
+    <nav class="navbar navbar-expand-lg navbar-light " style=" font-size: 1.2rem ;">
+        <div class="container-fluid">
+            <a class="navbar-brand  display-6 fw-bold " href="#" style="position:relative; left:17vw;">DMHCS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class=" container w-100 ">
+                <div class="collapse navbar-collapse col align-self-end " id="navbarNav">
+                    <ul class="navbar-nav " style="position:fixed; left: 51vw">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'regs:home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'accounts:login' %}?as=hospital">Hospital</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:login' %}?as=patient">Patients</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:login' %}?as=regulator">Regulators</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:login' %}?as=researcher">Researchers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">FAQ's</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <!-- form starts here -->
     <div class="container w-50 mt-5 mx-auto ">
         <div>
             <p class="display-6 text-center"> Login as a Hospital </p>
         </div>
-        <form action="" method="get" class=" row needs-validation " >
-            <div class=" d-grid g-2">
-                
-                <div class="mb-3 row">
-                    <label for="first Name" class="col-sm-2 col-form-label">Hospital ID</label>
-                    <div class="col-sm-10">
-                        <input type="text" required class="form-control" id="hospital_id" placeholder="">
+        <form action="{% url 'accounts:login' %}?as=hospital" method="post" class=" row needs-validation ">
+            {% csrf_token %}
+
+            {% if errors %}
+                {% for error in errors %}
+                    <div>
+                        <p style="color: red;" class="text-left"> {{ error }} </p>
                     </div>
-                </div>
+                {% endfor %}
+            {% endif %}
+
+            <div class=" d-grid g-2">
+
                 <div class="mb-3 row">
                     <label for="first Name" class="col-sm-2 col-form-label">Hospital ID</label>
                     <div class="col-sm-10">
-                        <input type="email" required class="form-control" id="hospital_email" placeholder="">
+                        <input type="text" name="hospital_id" required class="form-control" id="hospital_id"
+                               placeholder="">
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
-                        <input type="password" required class="form-control" id="hospital_password" placeholder="************">
+                        <input type="password" name="password" required class="form-control" id="hospital_password"
+                               placeholder="************">
                     </div>
                 </div>
                 <div class="mb-3 row  p-2 ">
                     <div class="col-sm-4 position-relative " style="left:-0.5vw; ">
-                        <a href="{% url 'accounts:register_hospital' %}" style="text-decoration: none; color: #0d6efd;">Don't Have An
+                        <a href="{% url 'accounts:register_hospital' %}" style="text-decoration: none; color: #0d6efd;">Don't
+                            Have An
                             Account ? Register </a>
                     </div>
                     <div class="col-sm-3 position-relative  " style="left:25vw; ">
@@ -70,7 +77,8 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3 w-100" style=" border-radius: 5px ;">Login</button>
+                    <button type="submit" class="btn btn-primary mb-3 w-100" style=" border-radius: 5px ;">Login
+                    </button>
                 </div>
 
             </div>

@@ -2,35 +2,34 @@ from django.db import models
 from django.utils import timezone
 from django.core.validators import RegexValidator
 
+from accounts.models import User
+
+
 #  models here.
 
 class Hospital(models.Model):
+    user = models.OneToOneField(User, related_name="hospital", blank=True, null=True, on_delete=models.CASCADE)
     hospital_id = models.CharField(max_length=20, primary_key=True)
     phone_number = models.CharField(max_length=20)
-    email = models.EmailField()
     hospital_type = models.CharField(max_length=50)
     affiliation = models.CharField(max_length=100)
     region = models.CharField(max_length=50)
     district = models.CharField(max_length=50)
     ward = models.CharField(max_length=50)
-    password = models.CharField(max_length=128)
-    confirm_password = models.CharField(max_length=128)
 
 
 class Researcher(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     institution_name = models.CharField(max_length=100)
     institution_id = models.CharField(max_length=10)
     phone_number = models.CharField(max_length=20)
     res_national_id = models.CharField(max_length=50, primary_key=True)
-    email = models.EmailField()
-    password = models.CharField(max_length=128)
     agree_terms = models.BooleanField(default=False)
 
 
 class Pregnancy(models.Model):
-
     card_no = models.AutoField(primary_key=True)
     pregnancy_count = models.PositiveIntegerField()
     birth_count = models.PositiveIntegerField()
@@ -46,7 +45,7 @@ class Pregnancy(models.Model):
     def __str__(self):
         return str(self.card_no)
 
-    
+
 class PreviousPregnancyInfo(models.Model):
     age_below_20 = models.BooleanField()
     ten_years_or_more_since_last_birth = models.BooleanField()
@@ -67,6 +66,7 @@ class PreviousPregnancyInfo(models.Model):
     mother_has_twins = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
 
 class Patient(models.Model):
     BLOOD_GROUP_CHOICES = (
@@ -97,8 +97,7 @@ class Patient(models.Model):
 
     def __str__(self):
         return f"{self.blood_group} {self.blood_rhesus_factor}"
-    
-    
+
 
 class ClinicalAttendance(models.Model):
     WEIGHT_CHOICES = [(i, f"{i} Kg") for i in range(1, 500)]  # Choices for weight (1 to 100 Kg)
@@ -140,6 +139,7 @@ class ClinicalAttendance(models.Model):
     tetanus_vaccine = models.CharField(max_length=4, choices=TT_CHOICES, verbose_name="Tetanus Vaccine")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
 
 class MotherChildTransmission(models.Model):
     PMTCT_ART_CHOICES = [
@@ -186,6 +186,7 @@ class MotherChildTransmission(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+
 # delivery pain tables
 
 # table 1
@@ -204,10 +205,11 @@ class Admission(models.Model):
 
     def __str__(self):
         return self.hospital_name
-    
+
     def __str__(self):
         return str(self.admission_id)
-    
+
+
 # table 2
 
 class PelvicExam(models.Model):
@@ -223,7 +225,8 @@ class PelvicExam(models.Model):
 
     def __str__(self):
         return f"Pelvic Exam #{self.pk}"
-    
+
+
 # table 3
 
 class BirthComplications(models.Model):
@@ -245,7 +248,8 @@ class BirthComplications(models.Model):
 
     def __str__(self):
         return f"Birth Complications #{self.pk}"
-    
+
+
 # table 4
 
 class Delivery(models.Model):
@@ -266,7 +270,8 @@ class Delivery(models.Model):
 
     def __str__(self):
         return f"Delivery #{self.pk}"
-    
+
+
 # table 5
 
 class DeliverySteps(models.Model):
@@ -283,7 +288,8 @@ class DeliverySteps(models.Model):
 
     def __str__(self):
         return f"Delivery Steps #{self.pk}"
-    
+
+
 # table 6
 
 class Child(models.Model):
@@ -310,7 +316,8 @@ class Child(models.Model):
 
     def __str__(self):
         return f"Child #{self.pk}"
-    
+
+
 # publication
 
 class ResearchPublication(models.Model):
@@ -321,13 +328,15 @@ class ResearchPublication(models.Model):
     description = models.TextField(verbose_name="Short Description")
     medical_field = models.CharField(max_length=100, verbose_name="Medical Field")
     article_file = models.FileField(upload_to="articles/", verbose_name="Upload Article")
-    res_national_id = models.ForeignKey(Researcher, on_delete=models.CASCADE) # foreign key from researcher model
+    res_national_id = models.ForeignKey(Researcher, on_delete=models.CASCADE)  # foreign key from researcher model
 
     def __str__(self):
         return self.titled
-    
+
     def __str__(self):
         return str(self.publication_no)
+
+
 # data request
 
 class ResearchDataRequest(models.Model):
@@ -342,15 +351,16 @@ class ResearchDataRequest(models.Model):
     data_description = models.TextField(verbose_name="Describe Data Requested")
     request_date = models.DateField(verbose_name="Date Of Request")
     data_format = models.CharField(max_length=10, choices=DATA_FORMAT_CHOICES, verbose_name="Choose Data Format")
-    research_permit = models.FileField(upload_to="research_permits/", verbose_name="Upload Research Permit", help_text="Permit should be in PDF format")
-    res_national_id = models.ForeignKey(Researcher, on_delete=models.CASCADE) # foreign key from researcher model
+    research_permit = models.FileField(upload_to="research_permits/", verbose_name="Upload Research Permit",
+                                       help_text="Permit should be in PDF format")
+    res_national_id = models.ForeignKey(Researcher, on_delete=models.CASCADE)  # foreign key from researcher model
 
     def __str__(self):
         return self.title
-    
+
     def __str__(self):
         return str(self.request_no)
-    
+
 
 # regulator inherits from abstract user
 
